@@ -23,7 +23,4 @@ public class Users {
     String email;
     String password;
     String name;
-    String department;
-    String address;
-    String role;
 }

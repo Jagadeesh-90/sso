@@ -6,6 +6,7 @@ import com.be.sso.backend.entity.Users;
 import com.be.sso.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import utils.UserConversion;
 
 import java.util.Optional;
 
@@ -16,13 +17,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UsersDTO save(UsersDTO theUser) {
-        return UsersDTO.convertEntityToDto(userRepository.save(UsersDTO.convertDtoToEntity(theUser)));
+        return UserConversion.convertEntityToDto(userRepository.save(UserConversion.convertDtoToEntity(theUser)));
     }
 
     @Override
     public UsersDTO findUser(Long id) {
         Optional<Users> theUser = userRepository.findById(id);
-        return theUser.map(UsersDTO::convertEntityToDto).orElse(null);
+        return theUser.map(UserConversion::convertEntityToDto).orElse(null);
     }
 
     @Override
@@ -31,6 +32,6 @@ public class UserServiceImpl implements UserService {
         if(user.isEmpty()){
             throw new RuntimeException("Invalid email and password");
         }
-        return UsersDTO.convertEntityToDto(user.get());
+        return UserConversion.convertEntityToDto(user.get());
     }
 }

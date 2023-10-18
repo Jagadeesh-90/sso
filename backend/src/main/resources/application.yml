@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: ${db_url}
-    username: ${db_username}
-    password: ${db_password}
+    url: jdbc:mysql://localhost:3306/demo
+    username: root
+    password: sql@90
   cors:
     allowed-origins:
       - "http://localhost:3000" # Allow requests from this origin
