@@ -1,0 +1,20 @@
+server:
+  port: 9005
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo
+    username: root
+    password: sql@90
+  cors:
+    allowed-origins:
+      - "http://localhost:3000" # Allow requests from this origin
+    allowed-methods:
+      - "*" # Allow all HTTP methods
+    allowed-headers:
+      - "*" # Allow all headers
+    allow-credentials: true # Allow credentials like cookies, if your application uses them
+
+Jwt:
+  secret: "secret"
+  message: 'Successfully logged in'
